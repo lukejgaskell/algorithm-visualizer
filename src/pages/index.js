@@ -17,6 +17,7 @@ const HomePage = () => {
 
   function reset() {
     if (!isRunning) setData(shuffleArray(defaultValue))
+    else window.location.reload()
   }
 
   async function sort(func) {
