@@ -12,6 +12,7 @@ const DataViewer = props => {
   const valueComponents = Object.entries(data).map(([key, value]) => {
     return (
       <div
+        key={key}
         style={{
           paddingTop: 10,
           paddingBottom: 10,

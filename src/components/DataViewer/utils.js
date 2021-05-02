@@ -9,17 +9,11 @@ export function renderValueComponent(key, value, info) {
 
   const dataInfo = info.dataInfo[key]
 
-  console.log(value)
-
   switch (dataInfo.type) {
     case "array":
-      return (
-        <ArrayViewer key={key} name={key} value={value} dataInfo={dataInfo} />
-      )
+      return <ArrayViewer name={key} value={value} dataInfo={dataInfo} />
     case "integer":
-      return (
-        <IntegerViewer key={key} name={key} value={value} dataInfo={dataInfo} />
-      )
+      return <IntegerViewer name={key} value={value} dataInfo={dataInfo} />
     default:
       return (
         <div key={key}>

@@ -1,20 +1,20 @@
 import * as React from "react"
-import Paper from "@material-ui/core/Paper"
 import { Button } from "@material-ui/core"
-import { bblSortV2, getBblSortData, getBblSortInfo } from "../sorts/bubbleSort"
-import { shuffleArray } from "../utils"
-import DataViewer from "../components/DataViewer"
-import "../styles/global.css"
+import {
+  bblSortV2,
+  getBblSortData,
+  getBblSortInfo,
+} from "../../sorts/bubbleSort"
+import DataViewer from "../DataViewer"
+import "../../styles/global.css"
 
-const defaultValue = Array.from(Array(100).keys())
-
-const HomePage = () => {
+const SortingVisualizer = () => {
   const [data, setData] = React.useState()
   const [info, setInfo] = React.useState()
   const [isRunning, setIsRunning] = React.useState(false)
 
   function reset() {
-    if (!isRunning) setData(shuffleArray(defaultValue))
+    if (!isRunning) setData(undefined)
     else window.location.reload()
   }
 
@@ -37,7 +37,7 @@ const HomePage = () => {
   return (
     <main>
       <title>Home Page</title>
-      <Paper>
+      <>
         <DataViewer data={data} info={info} />
         <Button onClick={reset}>Reset</Button>
         <Button onClick={() => sort(bblSortV2, getBblSortData, getBblSortInfo)}>
@@ -47,9 +47,9 @@ const HomePage = () => {
         <Button>Quick Sort</Button>
         <Button>Heap Sort</Button>
         <Button>Counting Sort</Button>
-      </Paper>
+      </>
     </main>
   )
 }
 
-export default HomePage
+export default SortingVisualizer
