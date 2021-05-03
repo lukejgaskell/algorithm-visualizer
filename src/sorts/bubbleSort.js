@@ -1,4 +1,4 @@
-import { timer } from "../utils"
+import { timer, waitForInteraction } from "../utils"
 import { shuffleArray } from "../utils"
 
 export default async function bblSort(inputArr, setArr) {
@@ -52,7 +52,7 @@ export function getBblSortInfo() {
   }
 }
 
-export async function bblSortV2(data, setData) {
+export async function bblSortV2(data, setData, interactiveMode = false) {
   let arr = Array.from(data.array)
   for (var i = 0; i < arr.length; i++) {
     // Last i elements are already in place
@@ -67,6 +67,9 @@ export async function bblSortV2(data, setData) {
 
         setData({ i, j, array: arr })
         await timer(100)
+        if (interactiveMode) {
+          await waitForInteraction()
+        }
       }
     }
   }

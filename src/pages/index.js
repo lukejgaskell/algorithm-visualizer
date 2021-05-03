@@ -59,7 +59,6 @@ const HomePage = () => {
             checked={v2}
             onChange={() => setV2(!v2)}
             name="v2"
-            lca
             color="primary"
           />
         }
